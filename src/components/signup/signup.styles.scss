@@ -1,0 +1,102 @@
+.welcome-container {
+  text-align: left;
+  background-color: #132440;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
+  position: relative;
+  height: 100vh;
+  h1 {
+    color: white;
+    margin-bottom: 3rem;
+  }
+  .left-container {
+    flex: 2;
+    padding: 50px;
+    background-color: #e94347;
+  }
+  .right-container {
+    flex: 3;
+    padding: 50px;
+    background-color: #132440;
+    .form-toggle-container {
+      display: flex;
+      justify-content: space-between;
+      max-width: 200px;
+      margin-bottom: 40px;
+      color: white;
+      font-weight: bold;
+      border: 1px solid white;
+      border-radius: 25px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      div {
+        flex: 1;
+        padding: 10px 20px;
+      }
+      .active {
+        background-color: #e94347;
+      }
+    }
+  }
+}
+form {
+  max-width: 400px;
+  label {
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+    input {
+      display: block;
+      margin: 10px 0 30px 0;
+      padding: 10px 0;
+      width: 100%;
+      background: transparent !important;
+      border: none;
+      outline: none;
+      color: white !important;
+      border-bottom: 2px solid white;
+      font-size: 16px;
+    }
+    input[type='password'] {
+      letter-spacing: 0.2rem;
+    }
+    ::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: #86868b;
+      opacity: 1; /* Firefox */
+      font-size: 16px;
+    }
+    /* Change the white to any color ;) */
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      box-shadow: 0 0 0 30px #132440 inset !important;
+      -webkit-box-shadow: 0 0 0 30px #132440 inset !important;
+      -webkit-text-fill-color: white !important;
+      color: white;
+    }
+  }
+  #name-input-field {
+    display: none;
+  }
+  .sign-in {
+    color: white;
+    background-color: #e94347;
+    border: none;
+    font-weight: bold;
+    height: 50px;
+    width: 200px;
+    border-radius: 30px;
+    margin-bottom: 40px;
+    font-size: 18px;
+  }
+  button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+  }
+}
