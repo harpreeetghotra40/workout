@@ -3,6 +3,7 @@ import { auth } from './firebase'
 import Signup from './components/signup/signup'
 import Dashboard from './components/dashboard/dashboard'
 import './App.css'
+import PersonalInfoModal from './components/Modals/PersonalInfoModal'
 
 function App() {
   const [user, setUser] = useState(null)

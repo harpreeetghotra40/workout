@@ -1,0 +1,23 @@
+#personal-modal-container {
+  position: absolute;
+  width: 600px;
+  height: 300px;
+  border-radius: 20px;
+  margin: 0 auto;
+  text-align: center;
+  background: white;
+  display: none;
+  top: 50%;
+  left: 50%;
+  box-shadow: 5px 12px 20px rgba(36, 37, 38, 0.13);
+  transform: translate(-47%, -40%);
+}
+
+.info-container {
+  position: relative;
+}
+.update-info-form {
+  label {
+    width: 50%;
+  }
+}

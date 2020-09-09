@@ -1,13 +1,24 @@
 import React from 'react'
 
 const ProfileContainer = ({ photoURL, displayName }) => {
+  const openPersonalModal = () => {
+    console.log('called')
+    document.querySelector('#personal-modal-container').style.display = 'block'
+  }
   return (
     <div className="profile-container">
       <div className="image-container">
         <img src={photoURL} alt="Profile" className="profile-image" />
       </div>
       <h2 className="profile-name">{displayName}</h2>
+      <button type="button" onClick={() => openPersonalModal()}>
+        Edit info
+      </button>
       <div className="metrics-container">
+        <div className="metric">
+          <p className="age">Age</p>
+          <p className="value">24</p>
+        </div>
         <div className="metric">
           <p className="weight">Weight</p>
           <p className="value">75.8 kg</p>
@@ -15,10 +26,6 @@ const ProfileContainer = ({ photoURL, displayName }) => {
         <div className="metric">
           <p className="height">Height</p>
           <p className="value">178 cm</p>
-        </div>
-        <div className="metric">
-          <p className="age">Age</p>
-          <p className="value">24</p>
         </div>
       </div>
     </div>

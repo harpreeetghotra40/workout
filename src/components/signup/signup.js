@@ -22,7 +22,7 @@ const Signup = () => {
           <div className="active">Sign In</div>
           <div className="">Sign up</div>
         </div>
-        <form>
+        <form id="signup-form">
           <label htmlFor="Full Name" id="name-input-field">
             Full Name
             <input
