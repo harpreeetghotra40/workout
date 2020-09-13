@@ -7,6 +7,7 @@ import 'firebase/analytics'
 // Add the Firebase products that you want to use
 import 'firebase/auth'
 import 'firebase/firestore'
+import 'firebase/database'
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -24,6 +25,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig)
 export const firestore = firebase.firestore()
 export const db = firebase.firestore()
+export const database = firebase.database()
 export const auth = firebase.auth()
 export const provider = new firebase.auth.GoogleAuthProvider()
 export const signInWithGoogle = () => auth.signInWithRedirect(provider)

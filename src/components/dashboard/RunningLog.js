@@ -12,7 +12,7 @@ const RunningLog = () => {
           <div>Pace</div>
           <div>Time</div>
         </div>
-        <Log date={'9/9'} distance={'1.61'} time={'09:50'} pace={'09:04'} />
+        {/* <Log date={'9/9'} distance={'1.61'} time={'09:50'} pace={'09:04'} /> */}
       </div>
     </div>
   )

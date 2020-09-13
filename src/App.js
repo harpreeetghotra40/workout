@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react'
+import Cookies from 'js-cookie'
 import { auth } from './firebase'
 import Signup from './components/signup/signup'
-import Dashboard from './components/dashboard/dashboard'
+import Dashboard from './components/dashboard/Dashboard'
 import './App.css'
-import PersonalInfoModal from './components/Modals/PersonalInfoModal'
 
 function App() {
   const [user, setUser] = useState(null)
   useEffect(() => {
-    auth.onAuthStateChanged((log) => setUser(log))
+    auth.onAuthStateChanged((log) => {
+      setUser(log)
+      if (user) {
+        Cookies.set('userToken', user.uid)
+      }
+    })
   }, [user, setUser])
   return (
     <div className="App">

@@ -16,8 +16,15 @@
 .info-container {
   position: relative;
 }
-.update-info-form {
+#update-info-form {
+  padding: 1.5rem;
+  text-align: left;
   label {
-    width: 50%;
+    display: block;
+    margin: 1rem 0;
+    input,
+    select {
+      margin: 0 1rem;
+    }
   }
 }
