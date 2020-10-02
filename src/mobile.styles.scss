@@ -1,0 +1,26 @@
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
+  .welcome-container {
+    h1 {
+      padding: 0 1.5rem;
+    }
+    .form-container {
+      max-width: 100%;
+      width: auto;
+      padding: 1.5rem;
+      margin-top: 0;
+      box-shadow: none;
+    }
+    #signup-form {
+      button {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .or-login-container {
+    .googleLogin {
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

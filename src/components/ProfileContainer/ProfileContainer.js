@@ -21,14 +21,15 @@ const ProfileContainer = ({
         if (doc.exists) {
           Cookies.set('measurements', doc.data())
           setMeasurements(doc.data())
-          console.log('measurements found')
+        } else {
+          openPersonalModal()
         }
       })
   }
 
   useEffect(() => {
     getMeasurements()
-  }, [])
+  })
 
   return (
     <div className="profile-container">

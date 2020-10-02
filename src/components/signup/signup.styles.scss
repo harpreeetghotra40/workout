@@ -1,64 +1,60 @@
 .welcome-container {
-  text-align: left;
-  background-color: #132440;
   display: flex;
-  align-items: stretch;
-  justify-content: space-evenly;
-  position: relative;
-  height: 100vh;
-  h1 {
-    color: white;
-    margin-bottom: 3rem;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  .form-container {
+    padding: 3rem;
+    background-color: white;
+    box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px,
+      rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+    width: 448px;
+    max-width: 100%;
+    border-radius: 4px;
+    margin: 3rem auto;
   }
-  .left-container {
-    flex: 2;
-    padding: 50px;
-    background-color: #e94347;
-  }
-  .right-container {
-    flex: 3;
-    padding: 50px;
-    background-color: #132440;
-    .form-toggle-container {
-      display: flex;
-      justify-content: space-between;
-      max-width: 200px;
-      margin-bottom: 40px;
-      color: white;
-      font-weight: bold;
-      border: 1px solid white;
-      border-radius: 25px;
+  .toggle-form-box {
+    display: grid;
+    grid: auto-flow / 1fr 1fr 1fr;
+    text-align: center;
+    margin-bottom: 10px;
+    h2,
+    p {
+      line-height: 28px;
+    }
+    p {
+      padding-top: 5px;
+    }
+    h2 {
+      color: #999;
       cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      div {
-        flex: 1;
-        padding: 10px 20px;
-      }
-      .active {
-        background-color: #e94347;
-      }
+    }
+    h2.active {
+      cursor: default;
+      color: #111;
+      text-decoration: underline;
+      text-decoration-color: #e94347;
     }
   }
 }
 #signup-form {
-  max-width: 400px;
+  max-width: 100%;
   label {
-    color: white;
-    text-transform: uppercase;
+    max-width: 100%;
+    color: #111;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 14px;
     input {
-      display: block;
+      box-sizing: border-box;
       margin: 10px 0 30px 0;
-      padding: 10px 0;
+      padding: 10px;
       width: 100%;
+      border-radius: 4px;
+      border: 1px solid #eaeaea;
       background: transparent !important;
-      border: none;
       outline: none;
-      color: white !important;
-      border-bottom: 2px solid white;
       font-size: 16px;
+      line-height: 28px;
     }
     input[type='password'] {
       letter-spacing: 0.2rem;
@@ -67,21 +63,27 @@
       /* Chrome, Firefox, Opera, Safari 10.1+ */
       color: #86868b;
       opacity: 1; /* Firefox */
-      font-size: 16px;
+      font-size: 12px;
     }
     /* Change the white to any color ;) */
     input:-webkit-autofill,
     input:-webkit-autofill:hover,
     input:-webkit-autofill:focus,
     input:-webkit-autofill:active {
-      box-shadow: 0 0 0 30px #132440 inset !important;
-      -webkit-box-shadow: 0 0 0 30px #132440 inset !important;
-      -webkit-text-fill-color: white !important;
-      color: white;
+      box-shadow: 0 0 0 30px white inset !important;
+      -webkit-box-shadow: 0 0 0 30px white inset !important;
+      -webkit-text-fill-color: #111 !important;
+      color: #111;
     }
   }
   #name-input-field {
-    display: none;
+    display: block;
+    height: auto;
+    overflow-y: hidden;
+    transition: height 0.2s ease;
+  }
+  .collapse {
+    height: 0 !important;
   }
   .sign-in {
     color: white;
@@ -89,8 +91,8 @@
     border: none;
     font-weight: bold;
     height: 50px;
-    width: 200px;
-    border-radius: 30px;
+    width: 100%;
+    border-radius: 4px;
     margin-bottom: 40px;
     font-size: 18px;
   }
@@ -98,5 +100,36 @@
     width: 100%;
     margin: 10px 0;
     padding: 10px;
+  }
+}
+
+.or-login-container {
+  text-align: center;
+  p {
+    color: #111;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .googleLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+      width: 60%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      border: 1px solid #eaeaea;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      img {
+        display: inline-block;
+        width: 28px;
+      }
+    }
   }
 }

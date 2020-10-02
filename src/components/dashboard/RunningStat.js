@@ -17,9 +17,11 @@ const RunningStat = () => {
       .collection('runningLog')
       .where('uid', '==', helpers.TOKEN)
       .get()
+    if (snapshot.docs) {
+      setRun(snapshot.docs[0].data())
+    }
     // snapshot.docs.map((doc) => doc.data())
-    console.log(snapshot.docs[0].data())
-    setRun(snapshot.docs[0].data())
+    // console.log(snapshot.docs[0].data())
   }
   const openNewRunForm = () => {
     document.querySelector('#newRun').style.display = 'block'
@@ -30,7 +32,7 @@ const RunningStat = () => {
   }
   useEffect(() => {
     getLastestRun()
-  }, [])
+  })
   return (
     <div className="running-container">
       <h1>Dashboard</h1>

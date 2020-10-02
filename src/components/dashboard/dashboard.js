@@ -10,7 +10,7 @@ import PersonalInfoModal from '../Modals/PersonalInfoModal'
 const Dashboard = ({ user }) => {
   const [measurements, setMeasurements] = useState({
     age: 0,
-    weight: 10,
+    weight: 0,
     height: { feet: 0, inches: 0 },
   })
   return (
@@ -22,10 +22,10 @@ const Dashboard = ({ user }) => {
           measurements={measurements}
           setMeasurements={setMeasurements}
         />
-        <div style={{ flex: '3', display: 'flex', flexDirection: 'column' }}>
+        {/* <div style={{ flex: '3', display: 'flex', flexDirection: 'column' }}>
           <RunningStat />
           <RunningLog />
-        </div>
+        </div> */}
         <PersonalInfoModal
           measurements={measurements}
           setMeasurements={setMeasurements}
