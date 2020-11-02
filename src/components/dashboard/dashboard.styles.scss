@@ -1,6 +1,7 @@
 $text-black: #1a1f36;
 $text-pink: #e94347;
-$text-blue: #132440;
+$text-blue: #46b3e6;
+$light-blue-bg: rgba(70, 179, 230, 0.1);
 $text-gray: #bbb;
 .dashboard-landing-page {
   max-width: 100%;
@@ -37,7 +38,7 @@ $text-gray: #bbb;
     overflow: hidden;
     max-width: 100px;
     border-radius: 4px;
-    background-color: rgba(233, 67, 71, 0.1);
+    background-color: $light-blue-bg;
     flex: 2;
     height: 100%;
     img {
@@ -49,9 +50,9 @@ $text-gray: #bbb;
     flex: 4;
     align-items: center;
     border-radius: 4px;
-    background-color: rgba(233, 67, 71, 0.1);
+    background-color: $light-blue-bg;
     .metric {
-      color: $text-pink;
+      color: $text-blue;
       flex: 1;
       font-size: 14px;
       p {
@@ -70,9 +71,9 @@ $text-gray: #bbb;
     padding-top: 24px;
     button {
       flex: 1;
-      color: $text-pink;
+      color: $text-blue;
       background: white;
-      border: 1px solid $text-pink;
+      border: 1px solid $text-blue;
       font-weight: bold;
       height: 50px;
       width: 100%;
@@ -82,9 +83,9 @@ $text-gray: #bbb;
   }
   .signOut-btn {
     flex: 1;
-    color: white;
-    background: $text-pink;
-    border: 1px solid $text-pink;
+    color: $text-blue;
+    background-color: $light-blue-bg;
+    border: 1px solid $text-blue;
     outline: none;
     font-weight: bold;
     height: 50px;

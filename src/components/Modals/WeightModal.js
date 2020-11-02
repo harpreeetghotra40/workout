@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import closeIcon from '../../images/close.png'
 // imported function
 import helpers from '../methods'
 
@@ -27,9 +27,11 @@ const WeightModal = ({ measurements, setMeasurements }) => {
     <div className="blur-background" id="weightModal">
       <div id="weight-modal-container">
         <div className="info-container">
-          <h2>Metrics</h2>
-          <button type="button" onClick={closeModal}>
-            X
+          <div className="modal-header">
+            <h2>Weight Log</h2>
+          </div>
+          <button className="close-btn" type="button" onClick={closeModal}>
+            <img src={closeIcon} alt="close icon" />
           </button>
           <form className="update-info-form" onSubmit={handleSubmit}>
             <label htmlFor="Date">
@@ -43,17 +45,19 @@ const WeightModal = ({ measurements, setMeasurements }) => {
               />
             </label>
             <label htmlFor="Weight">
-              Weight
+              Weight (kg)
               <input
                 id="weight-input"
                 placeholder={weight}
-                type="text"
+                type="number"
+                step="0.01"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
               />
-              KG
             </label>
-            <button type="submit">Update</button>
+            <button className="submit-btn" type="submit">
+              Update
+            </button>
           </form>
         </div>
       </div>

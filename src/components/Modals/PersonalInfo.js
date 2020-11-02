@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-
+import closeIcon from '../../images/close.png'
 // imported function
 import helpers from '../methods'
-
 import './modal.styles.scss'
 
 const WeightModal = ({ measurements, setMeasurements }) => {
@@ -29,7 +28,7 @@ const WeightModal = ({ measurements, setMeasurements }) => {
     <div className="blur-background" id="personalModal">
       <div id="personal-modal-container">
         <button className="close-btn" type="button" onClick={closeModal}>
-          X
+          <img src={closeIcon} alt="close icon" />
         </button>
         <div className="info-container">
           <div className="modal-header">
@@ -51,7 +50,7 @@ const WeightModal = ({ measurements, setMeasurements }) => {
               <input
                 id="age-input"
                 placeholder={age}
-                type="text"
+                type="number"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
               />
@@ -61,7 +60,8 @@ const WeightModal = ({ measurements, setMeasurements }) => {
               <input
                 id="weight-input"
                 placeholder={weight}
-                type="text"
+                type="number"
+                step="0.01"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
               />
@@ -71,12 +71,15 @@ const WeightModal = ({ measurements, setMeasurements }) => {
               <input
                 id="height-input"
                 placeholder={height}
-                type="text"
+                type="number"
+                step="0.1"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
               />
             </label>
-            <button className="submit-btn">Update</button>
+            <button className="submit-btn" type="button">
+              Update
+            </button>
           </form>
         </div>
       </div>

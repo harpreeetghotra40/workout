@@ -1,6 +1,7 @@
 $text-black: #1a1f36;
 $text-pink: #e94347;
-$text-blue: #132440;
+$text-blue: #46b3e6;
+$light-blue-bg: rgba(70, 179, 230, 0.1);
 $text-gray: #bbb;
 .blur-background {
   background-color: rgba(255, 255, 255, 0.1);
@@ -18,6 +19,7 @@ $text-gray: #bbb;
 }
 #personal-modal-container,
 #weight-modal-container {
+  position: relative;
   max-width: 600px;
   max-height: 90%;
   width: 100%;
@@ -30,6 +32,17 @@ $text-gray: #bbb;
     position: absolute;
     right: 24px;
     top: 24px;
+    padding: 5px 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    img {
+      display: block;
+      width: 24px;
+      height: 24px;
+      position: relative;
+    }
   }
 }
 
@@ -37,7 +50,7 @@ $text-gray: #bbb;
   .modal-header {
     padding: 24px;
     margin: 0;
-    border-bottom: 1px solid rgba(233, 67, 71, 0.3);
+    border-bottom: 1px solid $light-blue-bg;
     h2 {
       margin: 0;
     }
@@ -66,7 +79,7 @@ $text-gray: #bbb;
 }
 .submit-btn {
   color: white;
-  background-color: #e94347;
+  background-color: $text-blue;
   border: none;
   font-weight: bold;
   height: 50px;
