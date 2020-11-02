@@ -21,7 +21,7 @@ const PersonalInfoModal = ({ measurements, setMeasurements }) => {
   }
   const closeModal = () => {
     document.querySelector('#personal-modal-container').style.display = 'none'
-    setWeight(0)
+    setWeight('')
   }
   return (
     <div id="personal-modal-container">

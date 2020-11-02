@@ -31,8 +31,8 @@ const Dashboard = ({ user }) => {
         >
           Logout
         </button>
+        <Log />
       </div>
-      <Log />
     </div>
   )
 }

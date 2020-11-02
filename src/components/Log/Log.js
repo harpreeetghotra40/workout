@@ -27,6 +27,12 @@ const Log = () => {
           <div>Date</div>
           <div>Weight</div>
         </div>
+        {dates.map((date) => (
+          <div className="log flex-container">
+            <div>{date}</div>
+            <div>{log[date].weight}</div>
+          </div>
+        ))}
       </div>
     </div>
   )

@@ -1,5 +1,7 @@
+.log-wrapper {
+  flex: 1;
+}
 .log-container {
-  width: 375px;
   .log div {
     border: 2px solid black;
     text-align: center;

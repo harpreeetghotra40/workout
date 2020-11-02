@@ -43,16 +43,22 @@ const helpers = {
   addNewWeightToLog: (newWeight, date) => {
     db.collection('weightLog')
       .doc(auth.currentUser.uid)
-      .update({ [date]: { weight: newWeight } })
-      .catch((e) => console.log(e.errorCode))
-  },
-  addRun: (distance, pace, time) => {
-    db.collection('runningLog').doc().set({
-      uid: helpers.TOKEN,
-      distance,
-      pace,
-      time,
-    })
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          console.log('user info found')
+          db.collection('weightLog')
+            .doc(auth.currentUser.uid)
+            .update({ [date]: { weight: newWeight } })
+            .catch((e) => console.log(e.message))
+        } else {
+          console.log('user info not found')
+          db.collection('weightLog')
+            .doc(auth.currentUser.uid)
+            .set({ [date]: { weight: newWeight } })
+            .catch((e) => console.log(e.message))
+        }
+      })
   },
 }
 
