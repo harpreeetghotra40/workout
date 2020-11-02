@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
 import { signOut } from '../../firebase'
 import ProfileContainer from '../ProfileContainer/ProfileContainer'
-
 import './dashboard.styles.scss'
-import RunningStat from './RunningStat'
-import RunningLog from './RunningLog'
 import PersonalInfoModal from '../Modals/PersonalInfoModal'
+import Log from '../Log/Log'
 
 const Dashboard = ({ user }) => {
   const [measurements, setMeasurements] = useState({
     age: 0,
-    weight: 0,
+    weight: '',
     height: { feet: 0, inches: 0 },
   })
   return (
@@ -22,10 +20,6 @@ const Dashboard = ({ user }) => {
           measurements={measurements}
           setMeasurements={setMeasurements}
         />
-        {/* <div style={{ flex: '3', display: 'flex', flexDirection: 'column' }}>
-          <RunningStat />
-          <RunningLog />
-        </div> */}
         <PersonalInfoModal
           measurements={measurements}
           setMeasurements={setMeasurements}
@@ -38,6 +32,7 @@ const Dashboard = ({ user }) => {
           Logout
         </button>
       </div>
+      <Log />
     </div>
   )
 }

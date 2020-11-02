@@ -1,15 +1,24 @@
-import Cookies from 'js-cookie'
 import { db, auth } from '../firebase'
 
 const helpers = {
-  TOKEN: Cookies.get('userToken'),
   createUser: (email, password) => {
-    auth.createUserWithEmailAndPassword(email, password).catch((error) => {
-      // Handle Errors here.
-      const errorCode = error.code
-      const errorMessage = error.message
-      console.table({ errorCode, errorMessage })
-    })
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((cred) => {
+        db.collection('users')
+          .doc(cred.user.uid)
+          .set({
+            weight: 0,
+            age: 24,
+            height: { feet: 5, inches: 8 },
+          })
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code
+        const errorMessage = error.message
+        console.table({ errorCode, errorMessage })
+      })
   },
   signIn: (email, password) => {
     auth.signInWithEmailAndPassword(email, password).catch((error) => {
@@ -20,16 +29,22 @@ const helpers = {
     })
   },
   updateMeasurements: (age, height, weight) => {
-    db.collection('measurements').doc(helpers.TOKEN).set({
+    db.collection('users').doc(auth.currentUser.uid).set({
       age,
       height,
       weight,
     })
   },
   updateWeight: (newWeight) => {
-    db.collection('measurements').doc(helpers.TOKEN).update({
+    db.collection('users').doc(auth.currentUser.uid).update({
       weight: newWeight,
     })
+  },
+  addNewWeightToLog: (newWeight, date) => {
+    db.collection('weightLog')
+      .doc(auth.currentUser.uid)
+      .update({ [date]: { weight: newWeight } })
+      .catch((e) => console.log(e.errorCode))
   },
   addRun: (distance, pace, time) => {
     db.collection('runningLog').doc().set({

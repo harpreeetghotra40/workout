@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react'
-import Cookies from 'js-cookie'
-import helpers from '../methods'
-import { db } from '../../firebase'
+import { db, auth } from '../../firebase'
 
 const ProfileContainer = ({
   photoURL,
@@ -14,12 +12,11 @@ const ProfileContainer = ({
   }
 
   const getMeasurements = () => {
-    db.collection('measurements')
-      .doc(helpers.TOKEN)
+    db.collection('users')
+      .doc(auth.currentUser.uid)
       .get()
       .then((doc) => {
         if (doc.exists) {
-          Cookies.set('measurements', doc.data())
           setMeasurements(doc.data())
         } else {
           openPersonalModal()
@@ -38,7 +35,7 @@ const ProfileContainer = ({
       </div>
       <h2 className="profile-name">{displayName}</h2>
       <button type="button" onClick={() => openPersonalModal()}>
-        Edit info
+        Add Today&apos;s weight
       </button>
       <div className="metrics-container">
         <div className="metric">
