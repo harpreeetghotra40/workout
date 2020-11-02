@@ -1,4 +1,4 @@
-$text-black: #111;
+$text-black: #1a1f36;
 $text-pink: #e94347;
 $text-blue: #132440;
 $text-gray: #bbb;
@@ -6,7 +6,22 @@ $text-gray: #bbb;
   max-width: 100%;
   max-height: 100%;
   position: relative;
-  padding: 2%;
+  padding: 24px;
+}
+
+.profile-info-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  .displayName {
+    .profile-name {
+      margin-top: 0;
+      font-size: 22px;
+      text-align: left !important;
+      font-weight: bold;
+      color: $text-black;
+    }
+  }
 }
 
 .profile-container {
@@ -15,36 +30,67 @@ $text-gray: #bbb;
   text-align: center;
   max-width: 375px;
   color: $text-black;
-  border-radius: 20px;
+  border-radius: 4px;
   padding: 2rem;
   .image-container {
     position: relative;
     overflow: hidden;
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
-    background-color: #132440;
+    max-width: 100px;
+    border-radius: 4px;
+    background-color: rgba(233, 67, 71, 0.1);
     flex: 2;
+    height: 100%;
     img {
-      display: block;
-      height: 100%;
       width: 100%;
     }
-  }
-  .profile-name {
-    font-weight: bold;
-    color: $text-black;
   }
   .metrics-container {
     display: flex;
     flex: 4;
+    align-items: center;
+    border-radius: 4px;
+    background-color: rgba(233, 67, 71, 0.1);
     .metric {
       color: $text-pink;
       flex: 1;
-      font-weight: bold;
+      font-size: 14px;
+      p {
+        margin: 10px auto;
+      }
     }
     .value {
+      font-weight: bold;
+      font-size: 20px;
+      margin-top: 0;
       color: $text-black;
     }
+  }
+  .btn-container {
+    gap: 24px;
+    padding-top: 24px;
+    button {
+      flex: 1;
+      color: $text-pink;
+      background: white;
+      border: 1px solid $text-pink;
+      font-weight: bold;
+      height: 50px;
+      width: 100%;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+  }
+  .signOut-btn {
+    flex: 1;
+    color: white;
+    background: $text-pink;
+    border: 1px solid $text-pink;
+    outline: none;
+    font-weight: bold;
+    height: 50px;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 24px;
   }
 }

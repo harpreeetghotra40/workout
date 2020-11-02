@@ -1,36 +1,32 @@
 import React, { useState } from 'react'
-import { signOut } from '../../firebase'
 import ProfileContainer from '../ProfileContainer/ProfileContainer'
 import './dashboard.styles.scss'
-import PersonalInfoModal from '../Modals/PersonalInfoModal'
 import Log from '../Log/Log'
+import WeightModal from '../Modals/WeightModal'
+import PersonalInfo from '../Modals/PersonalInfo'
 
 const Dashboard = ({ user }) => {
   const [measurements, setMeasurements] = useState({
-    age: 0,
+    name: '',
+    age: '',
     weight: '',
-    height: { feet: 0, inches: 0 },
+    height: '',
   })
   return (
     <div className="dashboard-landing-page">
-      <div className="flex-container">
+      <div className="flex-container" style={{ gap: '24px' }}>
         <ProfileContainer
-          photoURL={user.photoURL}
-          displayName={user.displayName}
           measurements={measurements}
           setMeasurements={setMeasurements}
         />
-        <PersonalInfoModal
+        <WeightModal
           measurements={measurements}
           setMeasurements={setMeasurements}
         />
-        <button
-          type="button"
-          onClick={() => signOut()}
-          style={{ position: 'absolute' }}
-        >
-          Logout
-        </button>
+        <PersonalInfo
+          measurements={measurements}
+          setMeasurements={setMeasurements}
+        />
         <Log />
       </div>
     </div>
