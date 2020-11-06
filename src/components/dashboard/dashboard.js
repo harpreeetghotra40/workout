@@ -4,6 +4,7 @@ import './dashboard.styles.scss'
 import Log from '../Log/Log'
 import WeightModal from '../Modals/WeightModal'
 import PersonalInfo from '../Modals/PersonalInfo'
+import TrainingLog from '../Log/TrainingLog'
 
 const Dashboard = ({ user }) => {
   const [measurements, setMeasurements] = useState({
@@ -28,6 +29,7 @@ const Dashboard = ({ user }) => {
           setMeasurements={setMeasurements}
         />
         <Log />
+        <TrainingLog />
       </div>
     </div>
   )

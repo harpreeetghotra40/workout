@@ -3,9 +3,6 @@ import { db, auth, signOut } from '../../firebase'
 import avatar from '../../images/avatar.png'
 
 const ProfileContainer = ({ measurements, setMeasurements }) => {
-  const openWeightModal = () => {
-    document.querySelector('#weightModal').style.display = 'block'
-  }
   const openPersonalModal = () => {
     document.querySelector('#personalModal').style.display = 'block'
   }
@@ -60,13 +57,10 @@ const ProfileContainer = ({ measurements, setMeasurements }) => {
         <button type="button" onClick={() => openPersonalModal()}>
           Profile
         </button>
-        <button type="button" onClick={() => openWeightModal()}>
-          Weight +
+        <button type="button" onClick={() => signOut()} className="signOut-btn">
+          Logout
         </button>
       </div>
-      <button type="button" onClick={() => signOut()} className="signOut-btn">
-        Logout
-      </button>
     </div>
   )
 }

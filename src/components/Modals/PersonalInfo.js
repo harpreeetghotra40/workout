@@ -5,16 +5,15 @@ import helpers from '../methods'
 import './modal.styles.scss'
 
 const WeightModal = ({ measurements, setMeasurements }) => {
-  const [weight, setWeight] = useState(measurements.weight)
   const [height, setHeight] = useState(measurements.height)
   const [age, setAge] = useState(measurements.age)
   const [name, setName] = useState(measurements.name)
   const handleSubmit = (e) => {
     e.preventDefault()
-    helpers.updateMeasurements(age, height, weight)
+    helpers.updateMeasurements(age, height, name)
     setMeasurements((prevState) => {
-      prevState.weight = weight
       prevState.height = height
+      prevState.name = name
       prevState.age = age
       return { ...prevState }
     })
@@ -22,7 +21,6 @@ const WeightModal = ({ measurements, setMeasurements }) => {
   }
   const closeModal = () => {
     document.querySelector('#personalModal').style.display = 'none'
-    setWeight('')
   }
   return (
     <div className="blur-background" id="personalModal">
@@ -53,17 +51,6 @@ const WeightModal = ({ measurements, setMeasurements }) => {
                 type="number"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-              />
-            </label>
-            <label htmlFor="Weight">
-              Weight (kg)
-              <input
-                id="weight-input"
-                placeholder={weight}
-                type="number"
-                step="0.01"
-                value={weight}
-                onChange={(e) => setWeight(e.target.value)}
               />
             </label>
             <label htmlFor="Weight">

@@ -28,11 +28,11 @@ const helpers = {
       console.table({ errorCode, errorMessage })
     })
   },
-  updateMeasurements: (age, height, weight) => {
+  updateMeasurements: (age, height, name) => {
     db.collection('users').doc(auth.currentUser.uid).set({
       age,
       height,
-      weight,
+      name,
     })
   },
   updateWeight: (newWeight) => {

@@ -6,6 +6,25 @@ import { db, auth } from '../../firebase'
 const Log = () => {
   const [log, setLog] = useState({})
   const [dates, setDates] = useState([])
+  const [currentDate, setCurrentDate] = useState(new Date())
+  const openWeightModal = () => {
+    document.querySelector('#weightModal').style.display = 'block'
+  }
+
+  //  getting the current week
+  function daysOfTheWeek(current) {
+    let week = []
+    // Starting Sunday
+    current.setDate(current.getDate() - current.getDay())
+    for (let i = 0; i < 7; i++) {
+      week.push(new Date(current))
+      current.setDate(current.getDate() + 1)
+    }
+    week = week.map((day) => day.toJSON().slice(0, 10))
+    setDates(week)
+    // return week
+  }
+
   const chartRef = React.createRef()
   //  Hiding Chart Legend
   Chart.defaults.global.legend.display = false
@@ -22,6 +41,7 @@ const Log = () => {
   }
   useEffect(() => {
     getWeightLog()
+    daysOfTheWeek(currentDate)
     const myChartRef = chartRef.current.getContext('2d')
     const gradientFill = myChartRef.createLinearGradient(500, 0, 100, 0)
     gradientFill.addColorStop(0, 'rgba(70, 179, 230, 0.5)')
@@ -78,21 +98,25 @@ const Log = () => {
   }, [])
   return (
     <div className="log-wrapper">
-      <div className="chart-header">
-        <h2>Weight Log</h2>
+      <div className="flex-container">
+        <div className="chart-header">
+          <h6>Avg Body Weight</h6>
+          <h2>
+            74.6 <span>kg</span>
+          </h2>
+        </div>
+        <div className="add-btn-container">
+          <button
+            className="add-weight-data-btn"
+            type="button"
+            onClick={() => openWeightModal()}
+          >
+            Add +
+          </button>
+        </div>
       </div>
       <div className="log-container">
-        {/* <div className="log flex-container">
-          <div>Date</div>
-          <div>Weight</div>
-        </div> */}
         <canvas id="myChart" ref={chartRef} />
-        {/* {dates.map((date) => (
-          <div className="log flex-container">
-            <div>{date}</div>
-            <div>{log[date].weight}</div>
-          </div>
-        ))} */}
       </div>
     </div>
   )
